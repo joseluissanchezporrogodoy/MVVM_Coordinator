@@ -9,9 +9,12 @@ import SwiftUI
 
 @main
 struct MVVM_CoordinatorApp: App {
-    var body: some Scene {
-        WindowGroup {
-            ContentView()
+    @StateObject var coordinator = AppCoordinator()
+
+        var body: some Scene {
+            WindowGroup {
+                RootView()
+                    .environmentObject(coordinator)
+            }
         }
-    }
 }
